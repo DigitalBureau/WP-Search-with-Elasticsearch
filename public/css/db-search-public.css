@@ -1,0 +1,653 @@
+/************************
+* This file is used to for the public-facing style for search.
+*
+* @link       http://www.digitalbureau.com
+* @since      1.0.0
+*
+* @package    db_search
+* @subpackage db_search/public/css
+ * Version:           1.0.0
+ * Author:            Digital Bureau
+ * Author URI:        http://www.digitalbureau.com
+ * License:           GPL-3.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
+*
+***********************/
+
+
+/************************
+* Main Container
+***********************/
+
+.search #primary {
+    width: 100%!important;
+    float: none!important;
+}
+
+#esSearch--colmainSearch {
+    border: 1px solid #ccc;
+    border-color: var(--main-container-color);
+    border-bottom: none;
+    border-top: none;
+    margin: 0% auto;
+    max-width: 900px;
+    padding: 55px 35px;
+    width: 900px;
+}
+
+#esSearch--colmainSearch * {
+    transition: all 250ms;
+}
+
+#esSearch--colmainSearch_article {
+    min-height: 900px;
+    padding: 0px;
+    width: 100%;
+}
+
+.esSearch--colmainSearch_articleHead {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+
+/************************
+* Search Results
+***********************/
+
+#esSearch--searchResultsHeader {
+    border-bottom: 1px solid #ccc;
+    border-color: var(--border-color);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.esSearch--searchResultsHeader_articleHead {
+    font-size: 17px;
+}
+
+#esSearch--noResults {
+    margin-left: 1em;
+}
+
+
+/************************
+* Search Bar
+***********************/
+
+#esSearch--searchHeader {
+    width: 100%;
+}
+
+.esSearch--searchHeader_head {
+    color: var(--text-color);
+    display: inline-block;
+    font-size: 36px;
+}
+
+#esSearch--elasticSearch {
+    float: right;
+    margin-top: 14px;
+}
+
+#esSearch--esSubmit {
+    background: var(--button-color);
+    border: none;
+    border-radius: 3px;
+    padding: 4.5px 12px;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+
+#esSearch--esValue {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    border-color: var(--border-color);
+    display: inline;
+    height: 23px;
+    line-height: 21px;
+    width: 110px;
+    padding: 0px 3px;
+}
+
+
+/************************
+* Search Filters
+***********************/
+
+#esSearch--showFilters, .esSearch--showFilters_label {
+    display: none;
+}
+
+#esSearch--searchHeaderFilters {
+    font-size: 0.5em;
+}
+
+.esSearch--searchHeaderFilters_item {
+    display: inline-block;
+    margin: 15px 5px 5px 0px;
+}
+
+.esSearch--searchHeaderFilters_item {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-color: var(--border-color);
+    color: black;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 3px 6px;
+}
+
+#esSearch--searchHeaderFilters .esSearch--tagDelete {
+    background: none;
+    border: none;
+    color: #444;
+    font-size: 10px;
+    margin-bottom: 5px;
+    padding: 0px 2px 0 10px;
+    transform: scaleY(0.8);
+    vertical-align: text-top;
+}
+
+#esSearch--searchHeaderFilters .esSearch--tagDelete:hover {
+    border: none;
+    box-shadow: none;
+    color: red;
+}
+
+#esSearch--searchFilters {
+    box-sizing: border-box;
+    float: left;
+    padding: 15px;
+    width: 33%;
+}
+
+.esSearch--searchFilters_list {
+    list-style: none!important;
+    margin-bottom: 0px;
+}
+
+.esSearch--searchFilters_list li {
+    line-height: 0.7rem;
+}
+
+.esSearch--colmainSearch_articleHead, .esSearch--searchResultsHeader_articleHead {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px 0 25px;
+    width: 64%;
+}
+
+.filterActive {
+    font-weight: bold;
+}
+
+#esSearch--within {
+    border-top: 1px solid #ccc;
+    border-color: var(--border-color);
+    padding: 10px 0;
+    width: 100%;
+}
+
+#esSearch--searchFilters_searchWithin {
+    display: block;
+    transition: all 0ms !important;
+    width: 59%;
+}
+
+#esSearch--searchFilters_searchWithin, #esSearch--searchFilters_searchWithin:focus, #esSearch--searchFilters_searchWithin option {
+    border-color: var(--border-color);
+    color: #555;
+    vertical-align: middle;
+}
+
+.esSearch--searchFilters_filter {
+    color: var(--link-color)!important;
+    font-size: .8em;
+    padding: 5px;
+    max-width: 80%;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.esSearch--searchFilters_filter:hover {
+    color: var(--link-hover-color)!important;
+    text-decoration: none;
+}
+
+.esSearch--searchFilters_withinFilter, .esSearch--searchFilters_withinFilter:hover {
+    color: var(--text-color)!important;
+}
+
+.esSearch--searchFilters_clearFilter, .esSearch--searchFilters_clearFilter:hover {
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    color: white!important;
+    display: none;
+    font-size: 11px;
+    padding: 5px;
+    width: 34%;
+}
+
+.esSearch--searchFilters_filter_span {
+    display: inline-block;
+    float: right;
+    font-size: .8em;
+    margin-right: 10px;
+    margin-top: .5em;
+}
+
+.esSearch--searchFilters_label {
+    color: var(--text-color);
+    font-weight: 400!important;
+}
+
+.esSearch--within_label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 100!important;
+    width: 39%;
+}
+
+#esSearch--datesRange .esSearch--searchFilters_label {
+    display: inline-block;
+    font-size: .65em;
+    line-height: 1.75em;
+    padding-left: 5px;
+    width: 47%;
+}
+
+#esSearch--datesRange_filterStart, #esSearch--datesRange_filterEnd {
+    background: url(../images/calendar.png) no-repeat scroll;
+    background-position: 95% 3px;
+    background-size: 15px 15px;
+    border-radius: 2px;
+    border: 1px solid #acacac;
+    margin-bottom: 8px;
+    margin-left: 5px;
+    padding: 4px;
+}
+
+#esSearch--datesRange_text {
+    font-size: .8em;
+    margin: 0;
+    padding: 0px 5px;
+}
+
+#esSearch--datesRange_datesSubmit {
+    border-radius: 5px;
+    border: none;
+    font-size: .8em;
+    margin: 5px 5px 10px 5px;
+    padding: 5px 10px;
+}
+
+
+/***********************
+* Search Results
+***********************/
+
+#esSearch--searchResults {
+    border-left: 1px solid #ccc;
+    border-color: var(--border-color);
+    float: left;
+    margin-bottom: 10%;
+    min-height: 900px;
+    padding: 15px;
+    width: 62%;
+}
+
+.esSearch--searchResultsHeader_articleHead {
+    color: var(--text-color);
+    display: inline-block;
+    line-height: 2em;
+    width: 67%;
+}
+
+#esSearch-searchResults_searchSort_label {
+    width: 15.5%;
+}
+
+#esSearch--searchResults_searchSort {
+    width: 15%;
+}
+
+#esSearch-searchResults_searchSort_label, #esSearch--searchResults_searchSort {
+    border-color: var(--border-color);
+    color: var(--text-color);
+    display: inline-block;
+    font-size: .8em;
+}
+
+#esSearch--searchResultsList {
+    display: block;
+    list-style: none;
+}
+
+.esSearch--searchResultsList_item {
+    display: block;
+    margin-bottom: 2em;
+}
+
+.esSearch--searchResultsList_item:after {
+    clear: both;
+    content: " ";
+    display: block;
+}
+
+.esSearch--searchResultsList_image {
+    float: left;
+    margin: 0px 25px 0 0;
+    width: 100px;
+}
+
+.esSearch--searchResultsList_link {
+    color: var(--link-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    word-break: break-word;
+}
+
+.esSearch--searchResultsList_link:hover {
+    color: var(--link-hover-color);
+}
+
+.esSearch--searchResultsList_searchDate {
+    font-size: .75em;
+    line-height: 1.15em;
+}
+
+.esSearch--searchResultsList_searchDate {
+    font-size: .65em;
+    font-weight: bold;
+    line-height: 2em;
+}
+
+.esSearch--searchResultsPaging_item {
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.esSearch--searchResultsPaging_link {
+    border: 1px solid rgba(0, 0, 0, 0);
+    display: inline;
+    font-size: .8em;
+    font-weight: bold;
+    margin-right: 1px;
+    padding: 5px 9px;
+}
+
+.esSearch--searchResultsPaging_link:hover, .pageActive {
+    border-radius: 2px;
+    border: 1px solid #ccc!important;
+    text-decoration: none;
+}
+
+.esSearch--searchFilters_pageDotFilter {
+    border: 1px solid rgba(0, 0, 0, 0)!important;
+}
+
+.esSearch--emptyResults {
+    font-size: .85em;
+    margin-left: 10px;
+}
+
+
+/************************
+* Filter Sidebar
+***********************/
+
+#esSearch--tags, #esSearch--authors, #esSearch--dates, #esSearch--datesRange {
+    height: 0;
+    overflow: hidden;
+}
+
+#esSearch--showMore, #esSearch--showMore_2, #esSearch--showMore_3, #esSearch--addMoreContainer_addMore, #esSearch--addMoreContainer_addLess, #esSearch--addMoreContainer_addMore_2, #esSearch--addMoreContainer_addLess_2, #esSearch--addMoreContainer_addMore_3, #esSearch--addMoreContainer_addLess_3 {
+    display: none;
+}
+
+.esSearch--showMoreLabel, .esSearch--showMoreLabel_2, .esSearch--showMoreLabel_3 {
+    border-top: 1px solid #ccc;
+    border-color: var(--border-color);
+    box-sizing: border-box;
+    display: block;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.esSearch--addMoreContainer_addMoreLabel, .esSearch--addMoreContainer_addMoreLabel_2, .esSearch--addMoreContainer_addMoreLabel_3, .esSearch--addMoreContainer_addLessLabel, .esSearch--addMoreContainer_addLessLabel_2, .esSearch--addMoreContainer_addLessLabel_3 {
+    display: none;
+    font-size: .85em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.esSearch--dropdownArrow, .dropdown-button {
+    float: right;
+    font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 0px;
+    margin-right: 20px;
+    margin-top: 0.45em;
+    transform-origin: 0% 0%;
+    transform: scale(1, 1.8);
+}
+
+.dropdown-button {
+    margin-top: 12px;
+    transform: none;
+}
+
+.esSearch--dropdownArrow, #esSearch--tags, #esSearch--authors, #esSearch--dates, #esSearch--datesRange, #esSearch--authors {
+    transition: all 300ms;
+}
+
+.esSearch--addMoreContainer_3 {
+    display: none;
+}
+
+#esSearch--showMore:checked~.esSearch--addMoreContainer .esSearch--addMoreContainer_addMoreLabel, #esSearch--showMore_2:checked~.esSearch--addMoreContainer_2 .esSearch--addMoreContainer_addMoreLabel_2, #esSearch--showMore_3:checked~.esSearch--addMoreContainer_3 .esSearch--addMoreContainer_addMoreLabel_3 {
+    display: block;
+}
+
+#esSearch--showMore:checked~.esSearch--showMoreLabel .esSearch--dropdownArrow, #esSearch--showMore_2:checked~.esSearch--showMoreLabel_2 .esSearch--dropdownArrow, #esSearch--showMore_3:checked~.esSearch--showMoreLabel_3 .esSearch--dropdownArrow {
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    display: inline-block;
+    margin-right: 13px;
+    transform: rotate(90deg) scale(1, 1.8);
+}
+
+#esSearch--showMore:checked~#esSearch--tags {
+    height: 11.2em;
+}
+
+#esSearch--showMore_2:checked~#esSearch--dates {
+    height: auto;
+    max-height: 13.5em;
+    padding-bottom: 15px;
+}
+
+#esSearch--showMore_2:checked~#esSearch--datesRange {
+    height: 13.5em;
+}
+
+#esSearch--showMore_3:checked~#esSearch--authors {
+    height: 13.5em;
+}
+
+#esSearch--showMore:not(:checked)~#esSearch--tags, #esSearch--showMore_2:not(:checked)~#esSearch--dates, #esSearch--showMore_3:not(:checked)~#esSearch--authors {
+    height: 0px;
+}
+
+#esSearch--showMore:checked~.esSearch--addMoreContainer_addMoreLabel, #esSearch--showMore_2:checked~.esSearch--addMoreContainer_addMoreLabel_2 {
+    display: block;
+}
+
+
+/***********************
+Datepicker UI Override
+ ***********************/
+
+.search #ui-datepicker-div {
+    background-color: #fff;
+    border: 1px solid #f6f6f6!important;
+    box-shadow: 1px 1px 6px #eee;
+    padding: 8px;
+}
+
+.search .ui-datepicker {
+    font-size: 14px!important;
+}
+
+.search .ui-datepicker-prev, .search .ui-datepicker-next {
+    font-size: 10px;
+    padding: 3px;
+}
+
+.search .ui-datepicker-next {
+    float: right;
+}
+
+.search .ui-datepicker-title {
+    font-weight: 500;
+}
+
+.search .ui-datepicker-calendar tr td {
+    background: white!important;
+}
+
+.esSearch--datesRange_calendarError {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/***********************
+* Miscellaneous 
+***********************/
+
+.fullHeight {
+    height: auto!important;
+    max-height: 100%!important;
+}
+
+.hidden {
+    display: none;
+}
+
+#esSearch-separator {
+    border-top: 1px solid #ccc;
+    border-color: var(--border-color);
+    margin: 0px;
+}
+
+
+/***********************
+* Media Queries
+***********************/
+
+@media screen and (max-width:900px) {
+    #esSearch--colmainSearch {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%;
+    }
+    .esSearch--searchHeader_head {
+        display: block;
+        font-size: 24px;
+        margin: 0;
+        text-align: center;
+    }
+    #esSearch--elasticSearch {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        width: 80%;
+    }
+    #esSearch--esSubmit {
+        font-size: 16px;
+        height: 36px;
+    }
+    #esSearch--esValue {
+        font-size: 14px;
+        height: 36px;
+        margin-right: 3px;
+        width: 75%;
+    }
+    #esSearch--searchFilters_filterTitle {
+        display: none!important;
+    }
+    .esSearch--showFilters_label {
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .esSearch--showFilters_label .esSearch--dropdownArrow {
+        margin-top: 8px;
+    }
+    #esSearch--searchFilters {
+        padding: 10px 0px;
+        width: 100%;
+    }
+    #esSearch--showFilters:not(:checked)~#esSearch--searchFilters {
+        height: 0;
+        overflow: hidden;
+    }
+    #esSearch--showFilters:checked~#esSearch--searchFilters {
+        height: auto;
+    }
+    #esSearch--showFilters:checked~.esSearch--showFilters_label .esSearch--dropdownArrow {
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        display: inline-block;
+        margin-right: 13px;
+        transform: rotate(90deg) scale(1, 1.8);
+    }
+    #esSearch--searchResults {
+        border: none;
+        box-sizing: border-box;
+        padding: 30px 0px;
+        width: 100%;
+    }
+    .esSearch--colmainSearch_articleHead, .esSearch--searchResultsHeader_articleHead {
+        width: 60%;
+    }
+    #esSearch-searchResults_searchSort_label {
+        width: 12%;
+    }
+    .esSearch--searchResults_sortFilter {
+        width: 22%!important;
+    }
+    .esSearch--searchResultsHeader_articleHead {
+        font-size: 20px!important;
+        font-weight: 300;
+    }
+}
+
+
+/************************
+* IE11 Specific
+***********************/
+
+@media all and (-ms-high-contrast:none) {
+    .esSearch--dropdownArrow, .dropdown-button {
+        margin-top: 0.65em;
+    }
+}

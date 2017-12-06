@@ -1,0 +1,503 @@
+/**
+ * Admin Facing CSS Rules
+ * @link       http://www.digitalbureau.com
+ * @since             1.0.0
+ * @package           db_search
+ *
+ * Version:           1.0.0
+ * Author:            Digital Bureau
+ * Author URI:        http://www.digitalbureau.com
+ * License:           GPL-3.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
+**/
+
+/******************
+*Main Overrides 
+******************/
+
+body, h1, h2, h3, h4, h5, h6, button {
+    font-weight: 300!important;
+}
+
+p {
+    line-height: .85rem;
+    font-weight: 400!important;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-top: 60px;
+}
+
+h4 {
+    font-size: 1rem;
+    line-height: 0em
+}
+
+
+/**************************
+* Cluster/Index Displays 
+**************************/
+
+.esHealthDisplay {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: none;
+    max-width: 1300px;
+    padding: 20px;
+    width: 80%;
+}
+
+.esHealthDisplay--title {
+    border: none;
+    padding: 0;
+}
+
+.esHealthDisplay--table {
+    width: 100%;
+}
+
+.esHealthDisplay--th {
+    background-color: #1e8cbe;
+    color: white;
+    width: 20%;
+}
+
+.esHealthDisplay--td {
+    border: 1px solid #ddd;
+    font-size: .85rem;
+    height: 2.5rem;
+    text-align: center;
+    background: #fcfcfc;
+}
+
+
+/*************************************
+* Help Dialog 
+*************************************/
+
+#esHelp, #esHelp--close {
+    color: #1e8cbe;
+    font-size: .75rem;
+    font-weight: bold;
+    margin-left: 1em;
+}
+
+#esHelp--close {
+    display: block;
+    font-weight: bold;
+    text-align: right;
+}
+
+#esHelp:hover, #esHelp--close:hover {
+    color: #00A5E7;
+    cursor: pointer;
+}
+
+#esHelp--dialog {
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    max-width: 1300px;
+    padding: 10px 40px 70px 20px;
+    overflow: hidden;
+    transition: all 500ms;
+    width: 80%;
+}
+
+#esHelp--dialog.hidden {
+    height: 0px;
+    border: none;
+    padding: 0px;
+}
+
+.esHelp--title {
+    line-height: 0;
+}
+
+.esHelp--header {
+    margin-top: 2em;
+}
+
+.esHelp--list {
+    list-style: none;
+    margin-left: 2em;
+}
+
+.esHelp--listItem>small {
+    font-size: .85em;
+    font-weight: 400;
+    list-style: none;
+    margin-left: 2em;
+}
+
+.esHelp--listItem>small:before {
+    content: '* ';
+    color: #ff9000;
+}
+
+
+/*************************************
+* Before/After Index Creation Rules 
+*************************************/
+
+.esBefore, .esAfter {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: block;
+    max-width: 1300px;
+    padding: 20px;
+    width: 80%;
+}
+
+.esBefore--table {
+    width: 100%;
+}
+
+.esBefore--td {
+    white-space: nowrap;
+    width: 24%;
+}
+
+.esBefore tr td:nth-of-type(2) {
+    width: 80%;
+}
+
+.esBefore--input, .esAfter--input, .esAfter--select {
+    font-size: 1rem;
+    height: 2.25rem;
+}
+
+.esBefore--esCbLabel {
+    box-shadow: 1px 2px 1px #ddd;
+    color: white;
+    font-size: .85rem;
+    height: 100px;
+    padding: 6px 10px;
+    background-color: #1e8cbe;
+}
+
+.esBefore input[type="text"] {
+    width: 60%
+}
+
+.esBefore input[type="url"] {
+    width: 90%;
+}
+
+.esBefore input[type="checkbox"], .esAfter input[type="checkbox"] {
+    background: #1e8cbe;
+    border: none;
+    box-shadow: 1px 1px 1px #ddd;
+    height: 28px;
+    margin-left: -4px;
+    padding: 7px 4px 0px 7px !important;
+    vertical-align: text-top;
+    width: 28px;
+}
+
+.esBefore input[type="checkbox"]:before, .esAfter input[type="checkbox"]:before {
+    color: white;
+}
+
+.esBefore--esInclude {
+    margin: 2rem 0 1.5rem;
+}
+
+.esBefore--spacer {
+    padding: 5px;
+}
+
+.esBefore--esNote {
+    line-height: 1.5em;
+}
+
+.esBefore--esNote:before {
+    color: #ff9000;
+    font-size: 1.25rem;
+    margin-left: 1em;
+    margin-right: 2px;
+    content: "\002A";
+}
+
+
+/******************************
+* After Index Creation Rules 
+******************************/
+
+.esAfter--header, .esAfter input[type="checkbox"] {
+    display: inline-block;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.esAfter--table {
+    min-width: 480px;
+}
+
+.esAfter--customCss {
+    margin-top: 20px;
+}
+
+.esAfter--customCss_textarea {
+    padding: 10px;
+}
+
+
+/***********
+* Buttons 
+***********/
+
+#esSubmitAdmin {
+    background: none;
+    border: 2px solid #0085ba;
+    box-shadow: none;
+    color: #0085ba;
+    font-size: 1.25rem;
+    font-weight: 300;
+    height: auto;
+    padding: 10px;
+    text-shadow: none;
+    transition: all 200ms;
+}
+
+#esSubmitAdmin:hover {
+    background-color: #0085ba;
+    box-shadow: none;
+    color: white;
+    text-shadow: none;
+}
+
+
+/********************
+* Index Management 
+********************/
+
+.esIndexManagement--table {
+    width: 700px;
+}
+
+.esIndexManagement--tableHead {
+    margin-top: 25px;
+    text-align: left;
+}
+
+.esIndexManagement table tr td:nth-child(2) {
+    padding-left: 20px;
+}
+
+.esIndexManagement--tableButton, .esIndexManagement--tableButton:disabled {
+    background: #efefef;
+    border: 2px solid #0085ba;
+    box-shadow: none;
+    color: #0085ba;
+    font-size: 1.25rem;
+    height: 3.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 300px;
+    padding-left: 10px;
+    text-align: center;
+    text-shadow: none;
+    transition: all 300ms;
+    width: 100%;
+}
+
+.esIndexManagement--tableButton:hover {
+    background-color: #0085ba;
+    color: white;
+}
+
+.esIndexManagement--tableButton:disabled {
+    background: #444!important;
+    border: none;
+    color: #bbb!important;
+}
+
+.esIndexManagement--tableButton:disabled:hover {
+    background: #555!important;
+}
+
+
+/*****************
+* Message modal
+*****************/
+
+#esMessage {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    left: 0;
+    padding-bottom: 150%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#esMessage--modal {
+    background-color: #fefefe;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    padding: 7px 10px;
+    width: 450px;
+}
+
+#esMessage--modal_close {
+    border-radius: 100px;
+    border: 2px solid #0085ba;
+    color: #0085ba;
+    display: block;
+    float: right;
+    font-size: 16px;
+    font-weight: 900;
+    height: 19px;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 19px;
+}
+
+#esMessage--modal_close:hover {
+    background-color: #0085ba;
+    color: white;
+    cursor: pointer;
+}
+
+#esMessage--message p {
+    font-size: 1.05rem;
+    font-weight: 300!important;
+    line-height: 1.45rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 25px 10px 10px 10px;
+    text-align: center;
+    width: 95%;
+    word-break: break-word;
+}
+
+#esMessage--message_confirm, #esMessage--message_cancel, #esMessage--message_exec {
+    background: none;
+    border-radius: 3px;
+    border: 2px solid #0085ba;
+    color: #0085ba;
+    display: block;
+    font-size: 1.25rem;
+    margin: 10px auto;
+    padding: 5px 20px;
+    transition: all 300ms;
+}
+
+#esMessage--message_confirm:hover, #esMessage--message_exec:hover {
+    background-color: #0085ba;
+    color: white;
+}
+
+#esMessage--message_cancel {
+    background-color: none;
+    border: none;
+    color: red;
+    font-size: .65rem;
+    padding: 5px;
+}
+
+#esMessage--message_cancel:hover {
+    background: red;
+    color: white;
+}
+
+#esMessage--message_cancel, #esMessage--message_exec {
+    display: none;
+}
+
+
+/***********************
+* Miscellaneous rules
+***********************/
+
+.esIndexManagement--asterisk {
+    color: #ff9000;
+    font-size: 1.25rem;
+}
+
+#esIndexManagement--loading, #esIndexManagement--indexloading {
+    padding-left: 10px;
+    position: absolute;
+    width: 25px;
+}
+
+.esIndexManagement--adminError {
+    color: red;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 21px;
+}
+
+#esTitle {
+    display: inline-block;
+}
+
+#esDB {
+    box-sizing: border-box;
+    color: #1e8cbe;
+    display: inline-block;
+    padding-left: 27%;
+}
+
+#esDB img {
+    vertical-align: middle;
+    width: 155px;
+}
+
+
+/***********************
+*Mobile View
+***********************/
+
+@media screen and (max-width:900px) {
+    .esBefore, .esAfter {
+        max-width: 52%!important;
+    }
+    .esIndexManagement--table {
+        max-width: 90%;
+        width: auto!important;
+    }
+    td {
+        display: block!important;
+    }
+    input, h1, h2, h3, h4, p, textarea, td, table {
+        line-height: 1.5em;
+        margin-top: 10px;
+        max-width: 100%!important;
+    }
+    p {
+        margin-top: 1em;
+    }
+    input[type="text"] {
+        width: auto!important;
+    }
+    .esBefore input[type="checkbox"], .esAfter input[type="checkbox"] {
+        padding: 3px 4px 0px 4px !important;
+    }
+}
+
+
+/***********************
+* IE11 Specific
+***********************/
+
+@media all and (-ms-high-contrast:none) {
+    .esBefore input[type='checkbox'], .esAfter input[type='checkbox'] {
+        background: none;
+        height: 31px;
+        margin-left: 5px;
+    }
+}
