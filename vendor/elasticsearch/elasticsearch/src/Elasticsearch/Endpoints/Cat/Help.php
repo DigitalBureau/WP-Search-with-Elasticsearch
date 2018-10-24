@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints\Cat;
 
 use Elasticsearch\Endpoints\AbstractEndpoint;
@@ -32,7 +34,8 @@ class Help extends AbstractEndpoint
     {
         return array(
             'help',
-            's'
+            's',
+            'format',
         );
     }
 

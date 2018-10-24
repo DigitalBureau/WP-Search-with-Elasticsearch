@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints\Cat;
 
 use Elasticsearch\Common\Exceptions\RuntimeException;
@@ -19,7 +21,7 @@ class Snapshots extends AbstractEndpoint
     private $repository;
 
     /**
-     * @param $fields
+     * @param string $repository
      *
      * @return $this
      */
@@ -58,7 +60,8 @@ class Snapshots extends AbstractEndpoint
             'h',
             'help',
             'v',
-            's'
+            's',
+            'format',
         );
     }
 

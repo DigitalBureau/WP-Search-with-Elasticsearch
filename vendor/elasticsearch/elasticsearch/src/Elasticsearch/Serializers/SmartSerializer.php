@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Serializers;
 
+use Elasticsearch\Common\Exceptions;
 use Elasticsearch\Common\Exceptions\Serializer\JsonErrorException;
 
 /**
@@ -27,9 +30,10 @@ class SmartSerializer implements SerializerInterface
         if (is_string($data) === true) {
             return $data;
         } else {
-
-            $data = json_encode($data);
-
+            $data = json_encode($data, JSON_PRESERVE_ZERO_FRACTION);
+            if ($data === false) {
+                throw new Exceptions\RuntimeException("Failed to JSON encode: ".json_last_error());
+            }
             if ($data === '[]') {
                 return '{}';
             } else {
@@ -66,7 +70,7 @@ class SmartSerializer implements SerializerInterface
     /**
      * @todo For 2.0, remove the E_NOTICE check before raising the exception.
      *
-     * @param $data
+     * @param string|null $data
      *
      * @return array
      * @throws JsonErrorException

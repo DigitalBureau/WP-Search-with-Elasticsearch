@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints;
 
 use Elasticsearch\Common\Exceptions;
@@ -59,6 +61,8 @@ class Exists extends AbstractEndpoint
             'realtime',
             'refresh',
             'routing',
+            'version',
+            'stored_fields'
         );
     }
 

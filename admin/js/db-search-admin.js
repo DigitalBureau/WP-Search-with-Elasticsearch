@@ -1,8 +1,8 @@
- /*
+/*
  * Admin facing JS
  * Plugin Name:       WP Search with Elasticsearch
  * Description:       A custom tailored, enterprise search solution by Digital Bureau
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Digital Bureau
  * Author URI:        http://www.digitalbureau.com
  * License:           GPL-3.0+
@@ -20,137 +20,163 @@ var dbElasticSearch = {
         dbElasticSearch.tagSuggest();
     },
     closeModal: function() {
-        jQuery('#esMessage--modal_close').on('click', function() {
-            jQuery('#esMessage').fadeOut(300);
+        document.querySelector('#esMessage--modal_close').addEventListener('click', function(e) {
+            document.querySelector('#esMessage').classList.remove('active');
         });
-        jQuery('#esMessage--message_cancel').on('click', function() {
-            jQuery('#esMessage').fadeOut(300);
+
+        document.querySelector('#esMessage--message_cancel').addEventListener('click', function(e) {
+            document.querySelector('#esMessage').classList.remove('active');
         });
-        jQuery('#esMessage--message_confirm').on('click', function() {
-            jQuery('#esMessage').fadeOut(300);
-            if (!jQuery('#esMessage').hasClass('es-timeout')) {
+
+        document.querySelector('#esMessage--message_confirm').addEventListener('click', function(e) {
+            document.querySelector('#esMessage').classList.remove('active');
+            if (!document.querySelector('#esMessage').classList.contains('es-timeout')) {
                 setTimeout(function() {
-                    location.reload()
+                    location.reload();
                 }, 200);
             }
         });
+
     },
     createIndex: function() {
-        jQuery('#esIndexManagement--createIndex').on('click', function() {
-            jQuery('#esIndexManagement--loading').html('<img src=\"'+db_search_plugin_path.path+'/img/loading_blue.gif\" width=\"25\">');
-            jQuery.post('admin-ajax.php', {
-                'action': 'es_create_index'
-            }, function(response) {
-                jQuery('#esIndexManagement--loading').empty();
-            }).done(function(response) {
-                jQuery('#esMessage--message').html('<p>' + response + '</p>');
-                jQuery('#esMessage').css('display', 'block');
-                jQuery('#esIndexManagement--createIndex').prop('disabled', 'disabled')
-                jQuery('#esIndexManagement--indexPosts').prop('disabled', false)
+        document.querySelector('#esIndexManagement--createIndex').addEventListener('click', function(e) {
+            document.querySelector('#esIndexManagement--loading').innerHTML = ' <img src=\"' + db_search_plugin_path.path + '/img/loading_blue.gif\" width=\"25\">';
+
+            var url = '/wp-admin/admin-ajax.php?action=es_create_index';
+            var request = new XMLHttpRequest();
+
+            request.open('POST', url, true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8;');
+            request.onload = function (response) {
+                document.querySelector('#esIndexManagement--loading').innerHTML = '';
+                document.querySelector('#esMessage--message').innerHTML = '<p>' + response.target.responseText + '</p>';
+                document.querySelector('#esMessage').classList.add('active');
+                document.querySelector('#esIndexManagement--createIndex').disabled = 'disabled';
+                document.querySelector('#esIndexManagement--indexPosts').disabled = false;
+
                 //activate search index
-                jQuery('#esActivated').val('on');
+                document.querySelector('#esActivated').value = 'on';
+
                 //disable cluster info after index creation
-                jQuery('input[name="_db-search[esindex]"]').prop('readonly', 'readonly')
-                jQuery('input[name="_db-search[esurl]"]').prop('readonly', 'readonly')
-                jQuery('input[name="_db-search[esurlport]"]').prop('readonly', 'readonly')
-                jQuery('#es-before input[type="checkbox"]').click(function() {
-                    return false;
-                })
-            })
+                document.querySelector('input[name="_db-search[esindex]"]').readonly =  true;
+                document.querySelector('input[name="_db-search[esurl]"]').readonly =  true;
+                document.querySelector('input[name="_db-search[esurlport]"]').readonly =  true;
+            };
+            request.send();
+
         });
     },
     deleteIndex: function() {
-        jQuery('#esIndexManagement--deleteIndex').on('click', function() {
+        document.querySelector('#esIndexManagement--deleteIndex').addEventListener('click', function(e) {
+            console.log('running ES index deletion');
             var conf = 'Are you sure you want to delete your index and all data within it? This cannot be undone.';
-            jQuery('#esMessage--message_confirm').css('display', 'none');
-            jQuery('#esMessage--message').html('<p>' + conf + '</p>');
-            jQuery('#esMessage, #esMessage--message_cancel, #esMessage--message_exec').css('display', 'block');
-            jQuery('#esMessage--message_cancel').on('click', function() {
-                jQuery('#esMessage').fadeOut(300);
-                jQuery('#esMessage--message_cancel, #esMessage--message_exec').fadeOut(100);
+
+            document.querySelector('#esMessage--message_confirm').style.display = 'none';
+            document.querySelector('#esMessage--message').innerHTML = '<p>' + conf + '</p>';
+            document.querySelector('#esMessage').classList.add('active');
+            document.querySelector('#esMessage--message_cancel').style.display = 'block';
+            document.querySelector('#esMessage--message_exec').style.display = 'block';
+
+            document.querySelector('#esIndexManagement--deleteIndex').addEventListener('click', function() {
+                document.querySelector('#esMessage').classList.remove('active');
+                document.querySelector('#esMessage--message_cancel').style.display = 'none';
+                document.querySelector('#esMessage--message_exec').style.display = 'none';
             });
-            jQuery('#esMessage--message_exec').on('click', function() {
-                jQuery.post('admin-ajax.php', {
-                    'action': 'es_delete_index'
-                }, function(response) {
-                    jQuery('#esMessage--message_cancel, #esMessage--message_exec').css('display', 'none');
-                    jQuery('#esMessage--message_confirm').css('display', 'block');
-                    jQuery('#esMessage--message').html('<p>' + response + '</p>');
-                    jQuery('#esMessage').css('display', 'block');
-                });
+
+            document.querySelector('#esMessage--message_exec').addEventListener('click', function() {
+                var url = '/wp-admin/admin-ajax.php?action=es_delete_index';
+                var request = new XMLHttpRequest();
+
+                request.open('POST', url, true);
+                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8;');
+                request.onload = function (response) {
+                    document.querySelector('#esMessage--message_cancel').style.display = 'none';
+                    document.querySelector('#esMessage--message_exec').style.display = 'none';
+                    document.querySelector('#esMessage--message_confirm').style.display = 'block';
+                    document.querySelector('#esMessage--message').innerHTML = '<p>' + response.target.responseText + '</p>';
+                    document.querySelector('#esMessage').classList.add('active');
+                };
+                request.send();
             });
         });
     },
     helpDialog: function() {
-        jQuery('#esHelp').on('click', function() {
-            jQuery('#esHelp--dialog').removeClass('hidden');
-        })
-        jQuery('#esHelp--close').on('click', function() {
-            jQuery('#esHelp--dialog').addClass('hidden');
-        })
+        document.querySelector('#esHelp').addEventListener('click', function() {
+            document.querySelector('#esHelp--dialog').classList.remove('hidden');
+        });
+
+        document.querySelector('#esHelp--close').addEventListener('click', function() {
+            document.querySelector('#esHelp--dialog').classList.add('hidden');
+        });
     },
     indexPosts: function() {
-        jQuery('#esIndexManagement--indexPosts').on('click', function() {
-            jQuery('#esIndexManagement--indexloading').html('<img src=\"'+db_search_plugin_path.path+'/img/loading_blue.gif\" width=\"25\">');
-            jQuery.post('admin-ajax.php', {
-                'action': 'es_index_posts'
-            }, function(response) {
-                jQuery('#esIndexManagement--indexloading').empty();
-            }).done(function(response) {
-                jQuery('#esMessage--message').html('<p>' + response + '</p>');
-                jQuery('#esMessage').css('display', 'block');
-                jQuery('#esIndexManagement--indexPosts').prop('disabled', 'disabled')
-                jQuery('#esPopulated').val('on');
-            }).fail(function(msg) {
-                if (msg.status === 504) {
-                    message = "You have a lot of posts! Don't worry, the script will continue to run in the background, it may take up to 15 minutes to finish. <br><br><b> Your site may become unresponsive during this time.</b><br><br><small>If you aren't seeing posts being indexed, try upping the memory limit for Wordpress in wp-config.php.<br> 50,000 posts may require more than 2048mb of memory.</small>";
+        document.querySelector('#esIndexManagement--indexPosts').addEventListener('click', function() {
+            document.querySelector('#esIndexManagement--indexloading').innerHTML = '<img src=\"' + db_search_plugin_path.path + '/img/loading_blue.gif\" width=\"25\">';
 
-                    function check_status() {
-                        jQuery.ajax({
-                            type: "post",
-                            url: "admin-ajax.php",
-                            data: {
-                                action: "es_check_status",
-                            },
-                            timeout: 1500,
-                            success: function(message) {
-                                jQuery('#esMessage').removeClass('es-timeout');
-                                jQuery('#esMessage--message').html('<p>' + message + '</p>');
-                                jQuery('#esMessage').css('display', 'block');
-                                clearInterval(check)
-                            },
-                            error: function(request, status, err) {
-                                if (status == "timeout") {
-                                    console.log('Elasticsearch is still indexing, please be patient!')
-                                }
-                            }
-                        });
-                    }
-                    var check = setInterval(check_status, 5000);
+            var url = '/wp-admin/admin-ajax.php?action=es_index_posts';
+            var request = new XMLHttpRequest();
+
+            request.open('POST', url, true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8;');
+            request.onload = function (response) {
+                document.querySelector('#esIndexManagement--indexloading').innerHTML = '';
+                if (this.status >= 200 && this.status < 400) {
+                    document.querySelector('#esMessage--message').innerHTML = '<p>' + response.target.responseText + '</p>';
+                    document.querySelector('#esMessage').classList.add('active');
+                    document.querySelector('#esIndexManagement--indexPosts').disabled = 'disabled';
+                    document.querySelector('#esPopulated').value = 'on';
                 } else {
-                    message = "Wordpress encountered an error. If you have a lot of posts to index, try upping the memory limit for Wordpress in wp-config.php. 50,000 posts may require more than 2048mb of memory. Error message:" + msg.responseText;
+                    if (this.status === 504) {
+                        message = "You have a lot of posts! Don't worry, the script will continue to run in the background, it may take up to 15 minutes to finish. <br><br><b> Your site may become unresponsive during this time.</b><br><br><small>If you aren't seeing posts being indexed, try upping the memory limit for Wordpress in wp-config.php.<br> 50,000 posts may require more than 2048mb of memory.</small>";
+
+                        var check = setInterval(function () {
+                            var checkUrl = '/wp-admin/admin-ajax.php?action=es_check_status';
+                            var req = new XMLHttpRequest();
+
+                            req.open('POST', checkUrl, true);
+                            req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8;');
+                            req.onload = function (resp) {
+                                if (this.status >= 200 && this.status < 400) {
+                                    document.querySelector('#esMessage').classList.remove('es-timeout');
+                                    document.querySelector('#esMessage--message').innerHTML = '<p>' + resp.target.responseText + '</p>';
+                                    document.querySelector('#esMessage').classList.add('active');
+                                    clearInterval(check);
+                                } else {
+                                    console.log('Elasticsearch is still indexing, please be patient!');
+                                }
+                            };
+                            req.send();
+                        }, 5000);
+
+                    } else {
+                        message = 'Wordpress encountered an error. If you have a lot of posts to index, try upping the memory limit for Wordpress in wp-config.php. 50,000 posts may require more than 2048mb of memory. Error message:' + msg.responseText;
+                    }
+                    document.querySelector('#esMessage--message').innerHTML = '<p>' + message + '</p>';
+                    document.querySelector('#esMessage').classList.add('es-timeout');
+                    document.querySelector('#esMessage').classList.add('active');
                 }
-                jQuery('#esMessage--message').html('<p>' + message + '</p>');
-                jQuery('#esMessage').addClass('es-timeout')
-                jQuery('#esMessage').css('display', 'block');
-            })
+            };
+            request.send();
         });
     },
     tagSuggest: function() {
         jQuery(function($) {
             jQuery('input[name="_db-search[whitelist]"]').suggest('/wp-admin/admin-ajax.php?action=ajax-tag-search&tax=post_tag', {
-                multiple: true,
+                multiple:    true,
                 multipleSep: ',',
-                delay: 100
+                delay:       100
             });
             jQuery('input[name="_db-search[blacklist]"]').suggest('/wp-admin/admin-ajax.php?action=ajax-tag-search&tax=post_tag', {
-                multiple: true,
+                multiple:    true,
                 multipleSep: ',',
-                delay: 100
+                delay:       100
             });
         });
     }
 };
-jQuery(document).ready(function() {
-    dbElasticSearch.init();
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('form[name="elasticsearch-options"') !== null) {
+        dbElasticSearch.init();
+    }
+
 });

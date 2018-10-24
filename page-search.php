@@ -4,7 +4,7 @@
  *
  * The template for displaying search results
  * @package
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Digital Bureau
  * Author URI:        http://www.digitalbureau.com
  * License:           GPL-3.0+
@@ -64,7 +64,7 @@ if (class_exists('db_Search')):
         <label for="esSearch--showFilters" class="esSearch--showFilters_label esSearch--searchFilters_label">filter results<span class="esSearch--dropdownArrow">></span></label>
          <div id="esSearch--searchFilters">
           <h3 class="esSearch--colmainSearch_articleHead" id="esSearch--searchFilters_filterTitle">filter results</h3>
-          <button class="esSearch--searchFilters_filter esSearch--searchFilters_clearFilter">Reset Filters</button>
+          <button class="esSearch--searchFilters_filter esSearch--searchFilters_clearFilter" id="esSearch--searchFilters_clearSearch">Reset Filters</button>
           <div id="esSearch--within">
           <label class="esSearch--within_label esSearch--searchFilters_label">search within:</label>
           <select id="esSearch--searchFilters_searchWithin" class="esSearch--searchFilters_filter esSearch--searchFilters_withinFilter">
@@ -114,7 +114,7 @@ if (class_exists('db_Search')):
           </ul>
           <div class="esSearch--addMoreContainer_3">
           <input type="checkbox" id="esSearch--addMoreContainer_addMore_3">
-          <label for="add-more-3" class="esSearch--addMoreContainer_addMoreLabel_3 esSearch--searchFilters_label">View More</label>
+          <label for="esSearch--addMoreContainer_addMore_3" class="esSearch--addMoreContainer_addMoreLabel_3 esSearch--searchFilters_label">View More</label>
           <input type="checkbox" id="esSearch--addMoreContainer_addLess_3">
           <label for="esSearch--addMoreContainer_addLess_3" class="esSearch--addMoreContainer_addLessLabel_3 esSearch--searchFilters_label">View Less</label>
           </div>

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints;
 
 use Elasticsearch\Common\Exceptions;
@@ -15,21 +17,25 @@ use Elasticsearch\Common\Exceptions;
  */
 class ClearScroll extends AbstractEndpoint
 {
-    // A comma-separated list of scroll IDs to clear
-    private $scroll_id;
+    /**
+     * A comma-separated list of scroll IDs to clear
+     *
+     * @var string
+     */
+    private $scrollId;
 
     /**
-     * @param $scroll_id
+     * @param string $scrollId
      *
      * @return $this
      */
-    public function setScroll_Id($scroll_id)
+    public function setScrollId($scrollId)
     {
-        if (isset($scroll_id) !== true) {
+        if (isset($scrollId) !== true) {
             return $this;
         }
 
-        $this->scroll_id = $scroll_id;
+        $this->scrollId = $scrollId;
 
         return $this;
     }
@@ -40,19 +46,38 @@ class ClearScroll extends AbstractEndpoint
      */
     public function getURI()
     {
-        if (isset($this->scroll_id) !== true) {
-            throw new Exceptions\RuntimeException(
-                'scroll_id is required for Clearscroll'
-            );
-        }
-        $scroll_id = $this->scroll_id;
-        $uri   = "/_search/scroll/$scroll_id";
+        return "/_search/scroll/";
+    }
 
-        if (isset($scroll_id) === true) {
-            $uri = "/_search/scroll/$scroll_id";
+    /**
+     * @param array $body
+     *
+     * @throws \Elasticsearch\Common\Exceptions\InvalidArgumentException
+     * @return $this
+     */
+    public function setBody($body)
+    {
+        if (isset($body) !== true) {
+            return $this;
         }
 
-        return $uri;
+        $this->body = $body;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBody()
+    {
+        if (isset($this->body)) {
+            return $this->body;
+        }
+        if (is_array($this->scrollId)) {
+            return ['scroll_id' => $this->scrollId];
+        }
+        return ['scroll_id' => [$this->scrollId]];
     }
 
     /**

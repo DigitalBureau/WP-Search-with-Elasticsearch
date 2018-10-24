@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints\Cat;
 
 use Elasticsearch\Endpoints\AbstractEndpoint;
@@ -18,7 +20,7 @@ class Fielddata extends AbstractEndpoint
     private $fields;
 
     /**
-     * @param $fields
+     * @param string $fields
      *
      * @return $this
      */
@@ -59,7 +61,8 @@ class Fielddata extends AbstractEndpoint
             'h',
             'help',
             'v',
-            's'
+            's',
+            'format',
         );
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints;
 
 use Elasticsearch\Common\Exceptions\InvalidArgumentException;
@@ -79,6 +81,7 @@ class Search extends AbstractEndpoint
             'scroll',
             'search_type',
             'size',
+            'slice',
             'sort',
             'source',
             '_source',
@@ -93,7 +96,12 @@ class Search extends AbstractEndpoint
             'version',
             'fielddata_fields',
             'docvalue_fields',
-            'filter_path'
+            'filter_path',
+            'terminate_after',
+            'stored_fields',
+            'batched_reduce_size',
+            'typed_keys',
+            'pre_filter_shard_size'
         );
     }
 

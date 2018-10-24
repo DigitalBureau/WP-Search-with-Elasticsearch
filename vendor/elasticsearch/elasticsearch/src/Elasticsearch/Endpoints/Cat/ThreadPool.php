@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints\Cat;
 
 use Elasticsearch\Endpoints\AbstractEndpoint;
@@ -40,7 +42,8 @@ class ThreadPool extends AbstractEndpoint
             'full_id',
             'size',
             'thread_pool_patterns',
-            's'
+            's',
+            'format',
         );
     }
 

@@ -8,7 +8,7 @@
  * @package    db_search
  * @subpackage db_search/public
  * @author     Digital Bureau
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Digital Bureau
  * Author URI:        http://www.digitalbureau.com
  * License:           GPL-3.0+

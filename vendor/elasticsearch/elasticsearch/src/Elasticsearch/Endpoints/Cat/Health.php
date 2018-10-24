@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints\Cat;
 
 use Elasticsearch\Endpoints\AbstractEndpoint;
@@ -37,7 +39,8 @@ class Health extends AbstractEndpoint
             'help',
             'ts',
             'v',
-            's'
+            's',
+            'format',
         );
     }
 

@@ -196,11 +196,16 @@ h4 {
     border: none;
     box-shadow: 1px 1px 1px #ddd;
     height: 28px;
-    margin-left: -4px;
+    margin:-3px 6px;
     padding: 7px 4px 0px 7px !important;
-    vertical-align: text-top;
+    vertical-align: top;
     width: 28px;
 }
+
+.esAfter input[type="checkbox"] {
+    vertical-align: text-top;
+}
+
 
 .esBefore input[type="checkbox"]:before, .esAfter input[type="checkbox"]:before {
     color: white;
@@ -330,6 +335,7 @@ h4 {
 *****************/
 
 #esMessage {
+    animation:inactive 300ms;
     background-color: rgba(0, 0, 0, 0.7);
     display: none;
     left: 0;
@@ -337,6 +343,11 @@ h4 {
     position: fixed;
     top: 0;
     width: 100%;
+}
+
+#esMessage.active{
+    animation:active 300ms;
+    display:block!important;
 }
 
 #esMessage--modal {
@@ -499,5 +510,28 @@ h4 {
         background: none;
         height: 31px;
         margin-left: 5px;
+    }
+}
+
+/***********************
+* Keyframes
+***********************/
+@keyframes active {
+    from {
+        display:block!important;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes inactive {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display:none!important;
     }
 }
