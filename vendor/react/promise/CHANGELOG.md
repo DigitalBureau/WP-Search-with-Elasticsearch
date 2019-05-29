@@ -83,7 +83,7 @@ CHANGELOG
     * `$promiseOrValue` argument of `When::resolve()` and When::reject() is now
       optional.
 
-* 1.0.1 (2012-11-13)
+* 1.0.2 (2012-11-13)
 
     * Prevent deep recursion which was reaching `xdebug.max_nesting_level`
       default of 100.

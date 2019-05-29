@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types = 1);
 /**
  * User: zach
  * Date: 01/12/2015
@@ -47,7 +49,8 @@ class Segments extends AbstractEndpoint
             'h',
             'help',
             'v',
-            's'
+            's',
+            'format',
         );
     }
 

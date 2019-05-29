@@ -1,5 +1,7 @@
+<?php declare(strict_types = 1);?>
 #!/usr/bin/env php
-<?php
+
+<?php 
 
 require_once '../vendor/autoload.php';
 

@@ -6,7 +6,7 @@
 *
 * @package    db_search
 * @subpackage db_search/public/css
- * Version:           1.0.0
+ * Version:           1.0.4
  * Author:            Digital Bureau
  * Author URI:        http://www.digitalbureau.com
  * License:           GPL-3.0+
@@ -121,6 +121,7 @@
 
 #esSearch--searchHeaderFilters {
     font-size: 0.5em;
+    margin:2em 0;
 }
 
 .esSearch--searchHeaderFilters_item {
@@ -187,6 +188,7 @@
 #esSearch--within {
     border-top: 1px solid #ccc;
     border-color: var(--border-color);
+    margin-top:1em;
     padding: 10px 0;
     width: 100%;
 }
@@ -204,7 +206,7 @@
 }
 
 .esSearch--searchFilters_filter {
-    color: var(--link-color)!important;
+    color: var(--text-color)!important;
     font-size: .8em;
     padding: 5px;
     max-width: 80%;
@@ -224,10 +226,11 @@
 }
 
 .esSearch--searchFilters_clearFilter, .esSearch--searchFilters_clearFilter:hover {
+    background:none;
     border-radius: 5px;
-    border: none;
+    border: 1px solid black;
     box-sizing: border-box;
-    color: white!important;
+    color:black;
     display: none;
     font-size: 11px;
     padding: 5px;
@@ -607,6 +610,7 @@ Datepicker UI Override
     #esSearch--showFilters:not(:checked)~#esSearch--searchFilters {
         height: 0;
         overflow: hidden;
+        padding:0;
     }
     #esSearch--showFilters:checked~#esSearch--searchFilters {
         height: auto;

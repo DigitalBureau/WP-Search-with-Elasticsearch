@@ -47,6 +47,7 @@ $this->get_plugin_name; ?><span id="esHelp">Help</span></h1>
   <ul class="esHelp--list">
     <li class="esHelp--listItem">• The plugin is automatically set up to function "like Google", where queries in quotes will be treated as a single query, operators like 'and' will combine search terms into one search, etc. </li>
     <li class="esHelp--listItem">• Any new posts and pages will automatically be added to the search index, any changes to a post will be updated in the index.</li>
+    <li class="esHelp--listItem"><small> NOTE: Quick editing is not supported, changes to search results will not be updated until the post is edited with Gutenberg or the classic editor.</small></li>
   </ul>
 
 </div>
@@ -385,7 +386,7 @@ $this->get_plugin_name; ?><span id="esHelp">Help</span></h1>
       </button>
     </td>
     <td>
-      <span class="esIndexManagement--asterisk">&#42;</span> This will add load all posts and pages into your index. Select options above for including/excluding fields and post types. If you have a large amount of posts (>10,000) you will need to set the script's memory allocation to at least 2048MB, and indexing will take up to 15 minutes. 
+      <span class="esIndexManagement--asterisk">&#42;</span> This will add load all posts and pages into your index. Select options above for including/excluding fields and post types. If you have a large amount of posts (>10,000) you will need to set the script's memory allocation to at least 2048MB, and indexing will take up to 15 minutes. Check your server's error log for progress.
     </td>
   </tr>
   <tr>

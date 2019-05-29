@@ -1,6 +1,6 @@
 # WP Search with Elasticsearch #
 Contributors: Ben Fausch, Rob Jacobs, Don MacKinnon
-Tags: search, elasticsearch, search-wp
+
 Requires at least: 3.0.1
 Tested up to: 5.2.1
 Stable tag: 1.0.4
@@ -15,6 +15,7 @@ WP Search with Elasticsearch is a plugin designed to make adding a powerful sear
 
 Simply install the plugin, point it to your Elasticsearch instance, and with a few clicks you will have all of your content set up to work with Elasticsearch!
 
+ 
 
 ## Features:
 
@@ -37,6 +38,49 @@ Simply install the plugin, point it to your Elasticsearch instance, and with a f
 
 Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
 
+# Frequently Asked Questions
+=== WP Search with Elasticsearch ===
+Contributors: Ben Fausch, Don McKinnon, Rob Jacobs
+Tags: search, elasticsearch, search-wp
+Requires at least: 3.0.1
+Tested up to: 5.2.1
+Requires PHP: 5.6
+Stable tag: 1.0.4
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+A Wordpress plugin designed to make working with Elasticsearch and Wordpress quick and painless. By Digital Bureau.
+
+
+== Description ==
+WP Search with Elasticsearch is a plugin designed to make adding a powerful search engine to your Wordpress site simple.
+
+Simply install the plugin, point it to your Elasticsearch instance, and with a few clicks you will have all of your content set up to work with Elasticsearch!
+
+
+
+Features:
+
+* Easy to set up
+
+* Works with Gutenberg or Classic Editor
+
+* Index posts from a settings page
+
+* Robust search algorithms powered by Elasticsearch
+
+* Functions \"like Google\" right out of the box
+
+* Quick indexing and lightning-fast performance that supports up to 50,000 posts
+
+* Replaces front end search with a simple widget and a fast, mobile-friendly search page
+
+* No need to be a developer to work with ES!
+
+== Installation ==
+Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
+
+== Frequently Asked Questions ==
 
 ## Installation
 
@@ -44,9 +88,6 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
    * Elasticsearch 6+
    * PHP 5.6
    * At least 512MB allocated for Wordpress
-
-### Plugin Install
-Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
 
 ### Install Elasticsearch and allow all requests
 

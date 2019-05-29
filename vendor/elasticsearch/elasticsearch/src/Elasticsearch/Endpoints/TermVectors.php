@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints;
 
 use Elasticsearch\Common\Exceptions;
@@ -48,16 +50,20 @@ class TermVectors extends AbstractEndpoint
                 'type is required for TermVectors'
             );
         }
-        if (isset($this->id) !== true) {
+        if (isset($this->id) !== true && isset($this->body['doc']) !== true) {
             throw new Exceptions\RuntimeException(
-                'id is required for TermVectors'
+                'id or doc is required for TermVectors'
             );
         }
 
         $index = $this->index;
         $type  = $this->type;
         $id    = $this->id;
-        $uri   = "/$index/$type/$id/_termvectors";
+        $uri   = "/$index/$type/_termvectors";
+
+        if ($id !== null) {
+            $uri = "/$index/$type/$id/_termvectors";
+        }
 
         return $uri;
     }

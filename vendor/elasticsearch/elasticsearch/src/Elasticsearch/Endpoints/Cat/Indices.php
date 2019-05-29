@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Elasticsearch\Endpoints\Cat;
 
 use Elasticsearch\Endpoints\AbstractEndpoint;
@@ -45,7 +47,8 @@ class Indices extends AbstractEndpoint
             'pri',
             'v',
             'health',
-            's'
+            's',
+            'format',
         );
     }
 
